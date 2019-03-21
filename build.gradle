@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            name "aliyun1"
+            url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
+        maven {
+            name "aliyun2"
+            url 'http://maven.aliyun.com/mvn/repository/'
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.19.RELEASE'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+
+group = 'com.lind'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    maven {
+        name "aliyun1"
+        url 'http://maven.aliyun.com/nexus/content/groups/public'
+    }
+    maven {
+        name "aliyun2"
+        url 'http://maven.aliyun.com/mvn/repository/'
+    }
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter',
+            'org.springframework.boot:spring-boot-starter-data-jpa',
+            'com.h2database:h2',
+            'mysql:mysql-connector-java',
+            'com.fasterxml.jackson.core:jackson-annotations:2.3.3',
+
+    )
+    compileOnly('org.projectlombok:lombok')
+    testCompileOnly('org.projectlombok:lombok')
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
